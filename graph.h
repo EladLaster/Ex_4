@@ -41,9 +41,5 @@ pnode connect_all_nodes(); //v
 pnode find_node(pnode head, int key); //v
 
 
-// void S_Func(pnode * head);
-// void T_Func(pnode * head);
-// int dijikstra( pnode *head, int startnode,int endnode);
-
 
 #endif
