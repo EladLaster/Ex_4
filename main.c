@@ -37,14 +37,11 @@ int main(){
             int src = -1, dest = -1;
             scanf(" %d %d", &src, &dest);
             int dis = shortsPath_cmd(head, src, dest);
-            printf("Dijsktra shortest path: %d ",dis);
-            printf("\n");
+            printf("Dijsktra shortest path: %d \n",dis);
             break;
             
         case 'T':
-            int tsp = TSP_cmd(head);
-            printf("TSP shortest path: %d ",tsp);
-            printf("\n");
+            TSP_cmd(head);
             break;
         }
     }
