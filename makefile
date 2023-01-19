@@ -1,10 +1,10 @@
-all:prog1
+all:graph
 
 CC = gcc
 FLAGS = -Wall -g
 
-prog1: main.o graph.o algo.o
-	$(CC) $(FLAGS) main.o graph.o algo.o -o prog1
+graph: main.o graph.o algo.o
+	$(CC) $(FLAGS) main.o graph.o algo.o -o graph
 
 main.o: main.c graph.h
 	$(CC) $(FLAGS) -c main.c -o main.o
