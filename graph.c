@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
-#include <stdbool.h>
 #include "graph.h"
 
 
@@ -156,7 +155,6 @@ void insert_node_cmd(pnode *head){
     if(check!=NULL){
         delete_outgoing_edges(check);
         check->edges=NULL;
-        // newnode=check;
     }
     if(check==NULL){
         pnode newnode=(pnode)malloc(sizeof(node));
