@@ -99,53 +99,53 @@ void delete_outgoing_edges(pnode node){
     
 void delete_incoming_edges(pnode *head,int delete_node_num){
     
-    pnode tempnode= (*head);
-    while (tempnode!= NULL){
-        pedge tempedge=tempnode->edges;
-        while(tempedge!=NULL){
-            if(tempedge->endpoint->node_num==delete_node_num){
-                pedge deleteedge;
-                deleteedge=tempedge;
-                tempedge=tempedge->next;
-                free(deleteedge);
-                break;
-            }
-                tempedge=tempedge->next;
-        }
-        tempnode=tempnode->next;
-    }
-}
-//     pnode tempNode = (*head);
-//     while (tempNode!= NULL){
-//         if(tempNode->node_num!= delete_node_num && tempNode->edges!=NULL){
-//             if(tempNode->edges->endpoint->node_num!=delete_node_num){
-//                 pedge tempEdge = tempNode->edges;
-//                 while (tempEdge->next!= NULL){   
-//                     if(tempEdge->next->endpoint->node_num== delete_node_num){
-//                         pedge edge = tempEdge->next;
-//                         tempEdge->next=tempEdge->next->next;
-//                         free(edge);
-//                         break;
-//                     }
-//                     tempEdge = tempEdge->next;
-//                 }           
+//     pnode tempnode= (*head);
+//     while (tempnode!= NULL){
+//         pedge tempedge=tempnode->edges;
+//         while(tempedge!=NULL){
+//             if(tempedge->endpoint->node_num==delete_node_num){
+//                 pedge deleteedge;
+//                 deleteedge=tempedge;
+//                 tempedge=tempedge->next;
+//                 free(deleteedge);
+//                 break;
 //             }
-//             else{ 
-//                 if(tempNode->edges->next ==NULL){
-//                     pedge edge = tempNode->edges;
-//                     tempNode->edges = NULL;
-//                     free(edge);
-//                     }
-//                 else{
-//                     pedge edge = tempNode->edges;
-//                     tempNode->edges = edge->next;
-//                     free(edge);
-//                     }
-//             }
+//                 tempedge=tempedge->next;
 //         }
-//         tempNode = tempNode->next; 
+//         tempnode=tempnode->next;
 //     }
 // }
+    pnode tempNode = (*head);
+    while (tempNode!= NULL){
+        if(tempNode->node_num!= delete_node_num && tempNode->edges!=NULL){
+            if(tempNode->edges->endpoint->node_num!=delete_node_num){
+                pedge tempEdge = tempNode->edges;
+                while (tempEdge->next!= NULL){   
+                    if(tempEdge->next->endpoint->node_num== delete_node_num){
+                        pedge edge = tempEdge->next;
+                        tempEdge->next=tempEdge->next->next;
+                        free(edge);
+                        break;
+                    }
+                    tempEdge = tempEdge->next;
+                }           
+            }
+            else{ 
+                if(tempNode->edges->next ==NULL){
+                    pedge edge = tempNode->edges;
+                    tempNode->edges = NULL;
+                    free(edge);
+                    }
+                else{
+                    pedge edge = tempNode->edges;
+                    tempNode->edges = edge->next;
+                    free(edge);
+                    }
+            }
+        }
+        tempNode = tempNode->next; 
+    }
+}
 
 pnode find_node(pnode head,int key){
 
