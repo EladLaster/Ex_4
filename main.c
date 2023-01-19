@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
-#include "Graphs.h"
+#include "graph.h"
 
 int main(){
     char c;
