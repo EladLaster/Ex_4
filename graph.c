@@ -151,14 +151,15 @@ void insert_node_cmd(pnode *head){
     pnode temp=(*head);
     pedge edgeCurrent = NULL;
     scanf(" %d",&new_node_num);
-    pnode newnode=(pnode)malloc(sizeof(node));
+    
     pnode check = find_node(temp,new_node_num);
     if(check!=NULL){
         delete_outgoing_edges(check);
         check->edges=NULL;
-        newnode=check;
+        // newnode=check;
     }
     if(check==NULL){
+        pnode newnode=(pnode)malloc(sizeof(node));
         newnode->node_num = new_node_num;
         newnode->edges = NULL;
         newnode->next = NULL;
@@ -166,6 +167,7 @@ void insert_node_cmd(pnode *head){
             temp=temp->next;
         }
         temp->next=newnode;
+        check=newnode;
     }
     while (scanf(" %d %d", &connectNode, &weight)==2){
         temp = (*head);
@@ -175,8 +177,8 @@ void insert_node_cmd(pnode *head){
         edgeCurrent = (pedge)malloc(sizeof(edge));
         edgeCurrent->weight = weight;
         edgeCurrent->endpoint = temp;
-        edgeCurrent->next = newnode->edges;
-        newnode->edges = edgeCurrent;
+        edgeCurrent->next = check->edges;
+        check->edges = edgeCurrent;
     }
 }
 
